@@ -3,7 +3,7 @@
 <p>
 <strong>Project Summary</strong>
 <br></br>
-This is a Pareto Analysis project using a dataset from a pet shop. I utilized SQL in Google BigQuery to create the project repository. The objective is to determine what proportion of customers’ accounts for 20%, 50%, and 80% of total revenue, and to use those findings to evaluate how concentrated revenue is across the customer base.
+This is a Pareto Analysis project using a dataset from a pet shop. I utilized SQL in <a href="https://console.cloud.google.com/bigquery?project=pareto-sql1&supportedpurview=project&ws=!1m36!1m7!12m5!1m3!1spareto-sql1!2seurope-west1!3s32170c36-1176-4f5c-8278-1a188bb09bf9!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west4!3sf861cf1c-e8cc-49f8-9a60-781fb9ceacae!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west4!3s817af399-8bad-4088-847d-29c08e7e2e6d!2e1!23sWS_URL_PARAM!1m5!4m3!1spareto-sql1!2spetshop!3ssales_v3!23sTREE_NODE_SELECTION!1m5!4m3!1spareto-sql1!2spetshop!3ssales_v1!23sTREE_NODE_SELECTION">Google BigQuery to create the project repository</a>. The objective is to determine what proportion of customers’ accounts for 20%, 50%, and 80% of total revenue, and to use those findings to evaluate how concentrated revenue is across the customer base.
 
 <strong>Pareto Analysis Explanation</strong>
 <br></br>
