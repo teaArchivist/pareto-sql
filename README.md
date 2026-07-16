@@ -1,5 +1,6 @@
 <body>
 <h1>Pareto Analysis SQL Project: Petshop dataset</h1>
+<h3></h3><a href="Pareto SQL Project_Petshop dataset_22-06-2026.pdf">PDF report link</a></h3>
 <p>
 <strong>Project Summary</strong>
 <br></br>
