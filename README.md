@@ -3,7 +3,7 @@
 <p>
 <strong>Project Summary</strong>
 <br></br>
-This is a Pareto Analysis project using a dataset from a pet shop. I utilized SQL in <a href="https://console.cloud.google.com/bigquery?project=pareto-sql1&supportedpurview=project&ws=!1m36!1m7!12m5!1m3!1spareto-sql1!2seurope-west1!3s32170c36-1176-4f5c-8278-1a188bb09bf9!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west4!3sf861cf1c-e8cc-49f8-9a60-781fb9ceacae!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west4!3s817af399-8bad-4088-847d-29c08e7e2e6d!2e1!23sWS_URL_PARAM!1m5!4m3!1spareto-sql1!2spetshop!3ssales_v3!23sTREE_NODE_SELECTION!1m5!4m3!1spareto-sql1!2spetshop!3ssales_v1!23sTREE_NODE_SELECTION">Google BigQuery to create the project repository</a>. The objective is to determine what proportion of customers’ accounts for 20%, 50%, and 80% of total revenue, and to use those findings to evaluate how concentrated revenue is across the customer base.
+This is a Pareto Analysis project using a dataset from a pet shop. I utilized SQL in <a href="https://console.cloud.google.com/bigquery?project=pareto-sql1&supportedpurview=project&ws=!1m32!1m7!12m5!1m3!1spareto-sql1!2seurope-west1!3s32170c36-1176-4f5c-8278-1a188bb09bf9!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west4!3sf861cf1c-e8cc-49f8-9a60-781fb9ceacae!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west4!3s817af399-8bad-4088-847d-29c08e7e2e6d!2e1!23sWS_URL_PARAM!1m7!12m5!1m3!1spareto-sql1!2seurope-west1!3seddf2f36-72a1-413a-96c8-0e675b86df59!2e1!23sTREE_NODE_SELECTION">Google BigQuery to create the project repository</a>. The objective is to determine what proportion of customers’ accounts for 20%, 50%, and 80% of total revenue, and to use those findings to evaluate how concentrated revenue is across the customer base.
 
 <strong>Pareto Analysis Explanation</strong>
 <br></br>
@@ -21,19 +21,19 @@ Initial review showed that one invoice number can contain more than one stock co
 The analysis was developed incrementally through a sequence of SQL views in BigQuery. Each view added a new layer of transformation so that the final output could measure cumulative customer and revenue contribution accurately.
 <br></br>
 
-View 1:<br></br>
+View: sales_v1<br></br>
 The first step was to calculate line-level sales by multiplying Quantity by UnitPrice and to identify the total number of customers in the dataset. These values were combined into an initial view named sales_v1.
 At this stage, multiple rows still existed for the same customer because a customer could appear on more than one invoice. As a result, the data was not yet suitable for customer-level Pareto analysis.
 <br></br>
-View 2:<br></br>
+View: sales_v2<br></br>
 The second view grouped the data by CustomerID and summed sales to produce one revenue total per customer. This created a customer-level measure called CustomerRevenue, which is the core input for the Pareto analysis.
 This transformation in sales_v2 resolved the duplication issue seen in the first view and ensured that each customer appeared only once in the output.
 <br></br>
-View 3:<br></br>
+View: sales_v3<br></br>
 The third view introduced window functions to rank customers from highest to lowest revenue while retaining row level integrity using a Windows function. It also calculated cumulative revenue, total customer count, and total revenue across the full dataset.
 This step in sales_v3 established the core Pareto logic by enabling the report to track how revenue accumulates as customers are added in descending order of spending.
 <br></br>
-View 4:<br></br>
+View: sales_v4<br></br>
 The fourth view in sales_v4 extended the previous results by adding two derived fields: Cuml_Sales_Share and Cuml_PCT_Customers. These fields represent the cumulative share of total revenue and the cumulative share of total customers, respectively.
 This made it possible to identify what percentage of customers was required to reach a target revenue threshold. The completed view showed that both cumulative fields reached 100% (1.0) at the end of the ranked customer list, confirming that the calculations were complete.
 <br></br>
