@@ -69,7 +69,7 @@ Several follow-up analyses would strengthen the business value of this project:
 <li>Analyze product or product-category revenue concentration to identify whether a small number of items drives a large share of total sales.</li>
 <li>Compare Pareto patterns across time periods to assess whether customer concentration is stable or changing over time.</li>
 <li>Investigate top-spending customers in more detail to identify repeat purchase behavior, retention opportunities, or patterns associated with high-value accounts.
-the query.</li>
+</li>
 </ul>
 
 </p>
