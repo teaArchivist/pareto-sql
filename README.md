@@ -21,19 +21,19 @@ Initial review showed that one invoice number can contain more than one stock co
 The analysis was developed incrementally through a sequence of SQL views in BigQuery. Each view added a new layer of transformation so that the final output could measure cumulative customer and revenue contribution accurately.
 <br></br>
 
-Sales_v1<br></br>
+<i>Sales_v1</i><br></br>
 The first step was to calculate line-level sales by multiplying Quantity by UnitPrice and to identify the total number of customers in the dataset. These values were combined into an initial view named sales_v1.
 At this stage, multiple rows still existed for the same customer because a customer could appear on more than one invoice. As a result, the data was not yet suitable for customer-level Pareto analysis.
 <br></br>
-Sales_v2<br></br>
+<i>Sales_v2</i><br></br>
 The second view grouped the data by CustomerID and summed sales to produce one revenue total per customer. This created a customer-level measure called CustomerRevenue, which is the core input for the Pareto analysis.
 This transformation in sales_v2 resolved the duplication issue seen in the first view and ensured that each customer appeared only once in the output.
 <br></br>
-Sales_v3<br></br>
+<i>Sales_v3</i><br></br>
 The third view introduced window functions to rank customers from highest to lowest revenue while retaining row level integrity using a Windows function. It also calculated cumulative revenue, total customer count, and total revenue across the full dataset.
 This step in sales_v3 established the core Pareto logic by enabling the report to track how revenue accumulates as customers are added in descending order of spending.
 <br></br>
-Sales_v4<br></br>
+<i>Sales_v4</i><br></br>
 The fourth view in sales_v4 extended the previous results by adding two derived fields: Cuml_Sales_Share and Cuml_PCT_Customers. These fields represent the cumulative share of total revenue and the cumulative share of total customers, respectively.
 This made it possible to identify what percentage of customers was required to reach a target revenue threshold. The completed view showed that both cumulative fields reached 100% (1.0) at the end of the ranked customer list, confirming that the calculations were complete.
 <br></br>
@@ -43,15 +43,15 @@ This made it possible to identify what percentage of customers was required to r
 A declared variable query was then used to make the threshold selection dynamic. The variable Target_Sales_PCT was set to a default value, such as 0.80 (80%), and the query returned the first row where cumulative sales share was greater than or equal to the selected target.
 This approach allowed the same logic to be reused for different Pareto thresholds without rewriting the full query.
 <br></br>
-80% Revenue Threshold:<br></br>
+<i>80% Revenue Threshold:</i><br></br>
 When Target_Sales_PCT was set to 0.80, the analysis showed that 150 out of 261 customers were required to reach approximately 80% of total revenue. This corresponds to roughly 57% of customers.
 This result indicates that revenue is concentrated, but not to the extent of a classic 80/20 distribution. A comparatively broad portion of the customer base is needed to generate most revenue, which suggests that revenue dependency is spread across more than just a narrow group of top customers.
 <br></br>
-50% Revenue Threshold:<br></br>
+<i>50% Revenue Threshold:</i><br></br>
 When Target_Sales_PCT was set to 0.50(50%), the analysis showed that 79 out of 261 customers accounted for about 50% of total revenue. This corresponds with roughly 30% of customers.
 This finding shows a moderate concentration pattern, where less than one-third of customers generate half of total sales. It supports the idea that higher-value customers are important, but not exclusively responsible for overall performance.
 <br></br>
-20% Revenue Threshold:<br></br>
+<i>20% Revenue Threshold:</i><br></br>
 When Target_Sales_PCT was set to 0.20(20%), the analysis showed that 28 out of 261 customers accounted for approximately 20% of total revenue. This corresponds with about 11% of customers.
 This is the most concentrated portion of the revenue distribution and highlights a smaller group of customers with disproportionately high value. These customers may represent a useful segment for retention analysis, loyalty initiatives, or more detailed behavioral review.
 <br></br>
