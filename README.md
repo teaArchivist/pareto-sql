@@ -1,6 +1,6 @@
 <body>
 <h1><a href="Pareto SQL Project_Petshop dataset_22-06-2026.pdf">Pareto Analysis SQL Project: Petshop dataset</a></h1>
-  <h4><i>The full report is available in PDF format, within the main folder.</i></h4>
+  <h4><i>The full report is available in PDF format, within the main branch.</i></h4>
 <p>
 <strong>Project Summary</strong>
 <br></br>
