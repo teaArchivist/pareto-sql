@@ -1,6 +1,25 @@
 # [Pareto Analysis SQL Project: Pet Shop Dataset](Pareto%20SQL%20Project_Petshop%20dataset_22-06-2026.pdf)
 
 *The full report is available in PDF format in the main branch.*
+## Table of Contents
+
+- [Project Summary](#project-summary)
+- [Pareto Analysis Explanation](#pareto-analysis-explanation)
+- [Dataset Exploration](#dataset-exploration)
+- [Methodology](#methodology)
+  - [sales_v1](#sales_v1)
+  - [sales_v2](#sales_v2)
+  - [sales_v3](#sales_v3)
+  - [sales_v4](#sales_v4)
+- [Target Threshold Analysis](#target-threshold-analysis)
+  - [80% Revenue Threshold](#80-revenue-threshold)
+  - [50% Revenue Threshold](#50-revenue-threshold)
+  - [20% Revenue Threshold](#20-revenue-threshold)
+- [Results & Recommendations](#results--recommendations)
+  - [Key Results](#key-results)
+  - [Recommendations](#recommendations)
+  - [Limitations](#limitations)
+  - [Technical Takeaway](#technical-takeaway)
 
 ## Project Summary
 
