@@ -99,9 +99,9 @@ The analysis evaluated the minimum number of customers required to reach each re
 
 | Revenue threshold | Customers required | Share of customers |
 | --- | ---: | ---: |
-| 20% | 28 of 261 | Approximately 11% |
-| 50% | 79 of 261 | Approximately 30% |
-| 80% | 150 of 261 | Approximately 57% |
+| 20% | 28 of 261 | 11% |
+| 50% | 79 of 261 | 30% |
+| 80% | 150 of 261 | 57% |
 
 Customer revenue was unevenly distributed, but did not follow a classic 80/20 pattern. Approximately 57% of customers were needed to generate 80% of revenue, indicating that most revenue depended on a relatively broad customer group rather than a small minority.
 
